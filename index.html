@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#101a2d">
+  <title>Kitchen Dash — Phaser 3</title>
+  <style>
+    :root { color-scheme: dark; --ink:#f6f8ff; --muted:#a8b5cc; --panel:#15233a; --lime:#b8f36b; --coral:#ff7e78; }
+    * { box-sizing: border-box; }
+    html, body { margin:0; width:100%; min-height:100%; background:#101a2d; color:var(--ink); font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    body { display:flex; justify-content:center; align-items:center; padding:18px; }
+    .shell { width:min(100%, 1000px); }
+    .topline { display:flex; align-items:center; justify-content:space-between; gap:16px; margin:0 0 14px; }
+    .brand { display:flex; align-items:center; gap:11px; }
+    .mark { display:grid; place-items:center; width:42px; height:42px; border-radius:14px; background:linear-gradient(140deg,#b8f36b,#63d9c0); color:#102039; font-weight:950; letter-spacing:-1px; box-shadow:0 8px 25px #b8f36b22; }
+    h1 { font-size:clamp(20px,3vw,28px); line-height:1; margin:0; letter-spacing:-.8px; }
+    .subtitle { margin:5px 0 0; color:var(--muted); font-size:12px; }
+    .howto { font-size:12px; color:var(--muted); text-align:right; line-height:1.5; }
+    .game-frame { position:relative; overflow:hidden; border:1px solid #344560; border-radius:22px; background:#17243a; box-shadow:0 28px 90px #0005; }
+    #game { width:100%; display:block; }
+    #game canvas { display:block; width:100% !important; height:auto !important; touch-action:none; }
+    .underbar { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:13px 2px 0; color:var(--muted); font-size:11px; }
+    .underbar strong { color:var(--ink); }
+    .restart { appearance:none; border:1px solid #3c526d; border-radius:999px; padding:9px 14px; color:var(--ink); background:#1a2b44; font:700 11px inherit; cursor:pointer; transition:.15s ease; }
+    .restart:hover { background:#263c59; transform:translateY(-1px); }
+    .restart:focus-visible { outline:3px solid var(--lime); outline-offset:3px; }
+    .hint { color:#b8f36b; }
+    @media(max-width:600px) { body{padding:10px} .topline{align-items:flex-start} .howto{max-width:130px;font-size:10px} .mark{width:36px;height:36px;border-radius:12px} .underbar{align-items:flex-start;flex-wrap:wrap} }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header class="topline">
+      <div class="brand">
+        <div class="mark">KD</div>
+        <div><h1>Kitchen Dash</h1><p class="subtitle">A fast little chef's survival shift</p></div>
+      </div>
+      <div class="howto"><strong>Move:</strong> ← → or A / D<br><strong>Mobile:</strong> tap left or right side</div>
+    </header>
+    <section class="game-frame" aria-label="Kitchen Dash game">
+      <div id="game"></div>
+    </section>
+    <footer class="underbar">
+      <span>Collect <strong class="hint">fresh ingredients</strong> · Avoid <strong>kitchen hazards</strong> · Beat your best score</span>
+      <button class="restart" id="restartBtn" type="button">↻ Restart run</button>
+    </footer>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
